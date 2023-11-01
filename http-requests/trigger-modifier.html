@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Trigger modifiers</title
+  </head>
+
+  <body>
+    <div hx-post="http://localhost:1330/message" hx-trigger="mouseenter once">
+      Make POST Request only once
+    </div>
+
+
+    <div hx-post="http://localhost:1330/message" hx-trigger="click once delay:3s">
+      Delayed request
+    </div>
+
+    <div hx-post="http://localhost:1330/message" hx-trigger="click from:#requestTrigger">
+      Request from button
+    </div>
+    <button type="button" id="requestTrigger">
+      Trigger the POST request
+    </button>
+  </body>
+</html>
