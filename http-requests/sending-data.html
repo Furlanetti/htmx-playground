@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Sending data</title>
+    <script>
+      function getPassword() {
+        return "another_random_password";
+      }
+    </script>
+  </head>
+
+  <body>
+    <form>
+      <input type="email" name="email" placeholder="Enter email" /><br />
+      <input type="text" name="password" placeholder="Enter password" />
+
+      <button
+        hx-post="http://localhost:1330/echo_payload"
+        hx-target="#response"
+      >
+        Submit
+      </button>
+    </form>
+
+    <div id="response"></div>
+
+    <br /><br /><br />
+    <button
+      hx-post="http://localhost:1330/echo_payload"
+      hx-target="#response2"
+      hx-vals='js:{ "email": "test@test.com", "password": "random_password" }'
+    >
+      Submit with predefined values
+    </button>
+
+    <div id="response2"></div>
+
+    <br /><br /><br />
+    <button
+      hx-post="http://localhost:1330/echo_payload"
+      hx-target="#response3"
+      hx-vals='js:{ "email": "test@test.com", "password": getPassword() }'
+    >
+      Submit with JS function for predefined values
+    </button>
+
+    <div id="response3"></div>
+
+    <br /><br /><br />
+    <input type="text" name="email" id="my-email" placeholder="Enter email" />
+    <button
+      hx-post="http://localhost:1330/echo_payload"
+      hx-target="#response4"
+      hx-include="#my-email"
+    >
+      Submit with input without form tag
+    </button>
+
+    <div id="response4"></div>
+  </body>
+</html>
