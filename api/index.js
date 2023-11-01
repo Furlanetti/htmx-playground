@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const multer = require("multer");
+const path = require("path");
 
 dotenv.config();
 
