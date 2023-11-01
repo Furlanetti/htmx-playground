@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Progress Indicator</title>
+  </head>
+
+  <body>
+    <div hx-post="http://localhost:1330/message">
+      Click and see the loading
+
+      <p class="htmx-indicator">Loading...</p>
+    </div>
+
+    <div
+      hx-post="http://localhost:1330/message"
+      hx-indicator="#loading-outside"
+    >
+      Click and see the loading outside the element
+    </div>
+
+    <p id="loading-outside" class="htmx-indicator">Loading outside the element...</p>
+  </body>
+</html>

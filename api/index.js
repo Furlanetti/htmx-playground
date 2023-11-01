@@ -15,11 +15,13 @@ app.get("/", (req, res) => {
 });
 
 app.post("/message", async (req, res) => {
-  res.send("<h3>Hello world</h3>");
+  setTimeout(() => {
+    res.send("<h3>Hello world</h3>");
+  }, 5000);
 });
 
 const PORT = process.env.PORT || 1330;
 
 app.listen(PORT, () => {
   console.log(`App is now running on port: ${PORT}`);
-})
+});
