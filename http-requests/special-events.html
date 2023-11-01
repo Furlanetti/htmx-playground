@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Special Events</title
+  </head>
+
+  <body>
+
+    <div hx-get="http://localhost:1330" hx-target="#response" hx-trigger="load">
+      Fire as the page loads
+    </div>
+
+    <div
+      hx-get="http://localhost:1330"
+      hx-target="#response-revealed"
+      hx-trigger="revealed"
+    >
+      Fire when I'm revealed
+    </div>
+
+    <!-- 
+      the main difference is that intersect can have a threshold value
+      which is how many % of the element is visible to trigger the request
+      Another difference is that interset runs more than once
+    -->
+    <div
+      hx-get="http://localhost:1330"
+      hx-target="#response-revealed"
+      hx-trigger="intersect threshold:0.1"
+    >
+      Fire when I'm intersect
+    </div>
+
+    <div id="response"></div>
+    <div id="response-revealed"></div>
+  </body>
+</html>
