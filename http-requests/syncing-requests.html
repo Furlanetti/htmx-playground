@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Syncing requests</title>
+  </head>
+
+  <body>
+    <button
+      id="first"
+      hx-get="http://localhost:1330/delayed"
+      hx-target="#target1"
+    >
+      First Request
+    </button>
+
+    <button
+      id="second"
+      hx-post="http://localhost:1330/message"
+      hx-target="#target2"
+      hx-sync="#first:drop"
+    >
+      Second Request drop if first
+    </button>
+
+    <button
+      id="second"
+      hx-post="http://localhost:1330/message"
+      hx-target="#target2"
+      hx-sync="#first:replace"
+    >
+      Second Request replace if first
+    </button>
+
+    <button
+      id="second"
+      hx-post="http://localhost:1330/message"
+      hx-target="#target2"
+      hx-sync="#first:queue"
+    >
+      Second Request queue after first
+    </button>
+
+    <div id="target1">
+      <b>Target 1</b>
+    </div>
+
+    <div id="target2">
+      <b>Target 2</b>
+    </div>
+  </body>
+</html>

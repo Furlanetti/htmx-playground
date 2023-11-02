@@ -31,10 +31,14 @@ app.get("/", (req, res) => {
   res.send("<h2>Welcome Hipermedia API</h2>");
 });
 
-app.post("/message", async (req, res) => {
+app.get("/delayed", (req, res) => {
   setTimeout(() => {
-    res.send("<h3>Hello world</h3>");
-  }, 5000);
+    res.send("<h2>Welcome Hipermedia API</h2>");
+  }, 7000);
+});
+
+app.post("/message", async (req, res) => {
+  res.send("<h3>Hello world</h3>");
 });
 
 app.post("/echo_payload", async (req, res) => {
