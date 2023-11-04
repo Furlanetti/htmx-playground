@@ -48,6 +48,13 @@ app.post("/oob", async (req, res) => {
   </div>`);
 });
 
+app.post("/selecting_response", async (req, res) => {
+  res.send(`<div>
+    <h3 id="target2">Hello world</h3>
+    This goes into the main target
+  </div>`);
+});
+
 app.post("/echo_payload", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
