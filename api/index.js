@@ -41,6 +41,13 @@ app.post("/message", async (req, res) => {
   res.send("<h3>Hello world</h3>");
 });
 
+app.post("/oob", async (req, res) => {
+  res.send(`<div>
+    <h3 id="target2" hx-swap-oob="true">Hello world</h3>
+    This goes into the main target
+  </div>`);
+});
+
 app.post("/echo_payload", async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;

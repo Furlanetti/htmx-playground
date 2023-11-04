@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Out of bounds swaps</title>
+  </head>
+
+  <body>
+    <button hx-post="http://localhost:1330/oob" hx-target="#mainTarget">
+      Append after target
+    </button>
+
+    <div id="mainTarget">Main Target</div>
+
+    <div>Some content</div>
+
+    <div id="target2"></div>
+  </body>
+</html>
