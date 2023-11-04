@@ -48,6 +48,18 @@ app.post("/oob", async (req, res) => {
   </div>`);
 });
 
+app.get("/bigbox", async (req, res) => {
+  res.send(`
+    <div
+      id="growing-box"
+      class="grown"
+      style="height: 300px; width: 300px; background-color: blue"
+    >
+      Big box
+    </div>
+  `);
+});
+
 app.post("/selecting_response", async (req, res) => {
   res.send(`<div>
     <h3 id="target2">Hello world</h3>

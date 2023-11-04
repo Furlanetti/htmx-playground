@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Animation content</title>
+    <style>
+      .grown {
+        transition: all 1s ease-in;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="growing-box"
+      class="grown"
+      style="height: 100px; width: 100px; background-color: red"
+      hx-get="http://localhost:1330/bigbox"
+      hx-swap="outerHTML"
+    >
+      Small box
+    </div>
+  </body>
+</html>
