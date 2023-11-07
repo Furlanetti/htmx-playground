@@ -95,6 +95,29 @@ app.get("/users", async (req, res) => {
   ]);
 });
 
+app.post("/script", async (req, res) => {
+  res.send(`
+    <div>
+      <h3>Loading HTMX</h3>
+      <script>console.log("Ahoy");</script>
+    </div>
+    `);
+});
+app.post("/htmx", async (req, res) => {
+  res.send(`
+    <div>
+      <h3>Loading HTMX</h3>
+      <button
+        type="button"
+        hx-get="http://localhost:1330"
+        hx-target="#destination"
+      >
+        Load Root
+      </button>
+    </div>
+    `);
+});
+
 const PORT = process.env.PORT || 1330;
 
 app.listen(PORT, () => {

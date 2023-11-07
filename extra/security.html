@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Security</title>
+    <script>
+      // disable only script tags
+      htmx.config.allowScriptTags = false;
+
+      // be really careful, this disable a lot of HTMX functionality
+      htmx.config.allowEval = false;
+
+      // can only request to current domain
+      htmx.config.selfRequestsOnly = true;
+    </script>
+  </head>
+
+  <body>
+    <button
+      type="button"
+      hx-post="http://localhost:1330/htmx"
+      hx-target="#destination"
+    >
+      Load Hypermedia
+    </button>
+
+    <button
+      type="button"
+      hx-post="http://localhost:1330/script"
+      hx-target="#destination"
+    >
+      Load Script
+    </button>
+
+    <div id="destination"></div>
+
+    <!-- disable history in this page -->
+    <div hx-history="false"></div>
+  </body>
+</html>
