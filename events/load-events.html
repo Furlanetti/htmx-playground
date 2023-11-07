@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+    <title>Load Events</title>
+    <script>
+      htmx.onLoad((target) => {
+        console.log(target);
+      });
+    </script>
+  </head>
+
+  <body>
+    <script>
+      let users;
+
+      document.body.addEventListener("htmx:load", (e) => {
+        console.log(e);
+        fetch("http://localhost:1330/users")
+          .then((res) => res.json())
+          .then((usersData) => {
+            console.log(usersData);
+            uesrs = usersData;
+          });
+      });
+    </script>
+  </body>
+</html>

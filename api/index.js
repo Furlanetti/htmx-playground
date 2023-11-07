@@ -84,6 +84,14 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   res.send(`<b>Upload successfully</b>: ${filePath}`);
 });
 
+app.get("/users", async (req, res) => {
+  res.json([
+    { id: 1, name: "Joe Doe" },
+    { id: 2, name: "Maria Ninguem" },
+    { id: 3, name: "Ze Ninguem" },
+  ]);
+});
+
 const PORT = process.env.PORT || 1330;
 
 app.listen(PORT, () => {
