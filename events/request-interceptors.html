@@ -24,6 +24,12 @@
         e.detail.headers["Authorization"] = "Bearer 812989128912";
         e.detail.parameters["API_KEY"] = "weuquiqwekad";
       });
+
+      htmx.logger = function (element, event, data) {
+        console.log(element);
+        console.log(event);
+        console.log(data);
+      };
     </script>
   </body>
 </html>
