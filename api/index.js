@@ -38,6 +38,9 @@ app.get("/delayed", (req, res) => {
 });
 
 app.post("/message", async (req, res) => {
+  res.set({
+    "Last-Modified": "Tuesday, 31 Oct 2023",
+  });
   res.send("<h3>Hello world</h3>");
 });
 
